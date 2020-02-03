@@ -1,0 +1,22 @@
+Nodejs
+
+Frameworks: ExpressJS
+
+---- API REST ----
+
+Rotas HTTP:
+GET  buscar
+POST criar alguma informação
+PUT alterar
+DELETE apagar
+
+Conteúdo da requisição (o que é route, params, body)
+
+Body: Apenas POST/PUT
+Header: Informações adicionais
+
+ - Requisição do Front pro Back
+
+- HTTP codes
+    - 200: SUCCESS
+    - 201: CREATED...
