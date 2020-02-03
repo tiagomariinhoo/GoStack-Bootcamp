@@ -1,0 +1,5 @@
+- yarn install para instalar todas as dependências
+
+yarn add express
+
+pckage.json mostra todas as informações
