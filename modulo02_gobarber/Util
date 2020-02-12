@@ -20,3 +20,13 @@ Arquitetura MVC
 - A View aqui node NodeJS será apenas o JSON retornado para o Front-end
 
 Prettier e Eslint pra ajudar na escrita do código
+
+sudo docker ps - pra ver o que tá rodando
+"sudo docker ps -a" : para visualizar todos os containers mesmo os que não estão rodando
+Postbird
+
+sudo docker start database : para rodar o container (lembra de dar este comando antes de dar o yarn sequelize db:migrate)
+
+Usar o postbird para visualizar a tabela criada
+
+"yarn sequelize db:migrate:undo desfaz a última migration ou ...undo:all que desfaz todas as migrations"
