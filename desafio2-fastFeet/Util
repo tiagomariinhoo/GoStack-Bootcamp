@@ -6,6 +6,22 @@ yarn install sequelize
 
 yarn sequelize init
 
+yarn sequelize db:migrate (undo e undo:all para desfazer)
+
 yarn sequelize seed:generate --name admin-user
 
+yarn sequelize db:seed:all
+
 yarn dev (para rodar)
+
+------ Caso dê erro no db, pode ser o docker
+
+sudo docker ps -a (para mostrar os disponíveis)
+
+sudo docker run -d database (nome)
+
+yarn dev
+
+------- Caso dê erro porque a porta já está sendo usada, alguma outra aplicação pode estar usando, então:
+lsof -i:PORTA
+kill -9 [PID]

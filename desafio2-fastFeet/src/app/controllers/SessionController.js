@@ -1,5 +1,17 @@
-import User from '../models/User';
+/**
+ * Não usa o userController porque aqui iremos criar uma Session e não um User
+ *
+ *  Além disso, o UserController já tem o método Store, e só pode ter um por controller
+ *
+ * O sessionController irá tratar a autenticação e não a criação do usuário
+ */
 
+import jwt from 'jsonwebtoken';
+
+import * as Yup from 'yup';
+import authConfig from '../../config/auth';
+
+import User from '../models/User';
 
 class SessionController {
   async store(req, res) {
@@ -41,3 +53,4 @@ class SessionController {
   }
 }
 
+export default new SessionController();
