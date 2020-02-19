@@ -3,6 +3,7 @@ import { Router } from 'express';
 // Funciona como middleware
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import RecipientsController from './app/controllers/RecipientsController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -17,17 +18,23 @@ const routes = new Router();
 //   return res.json(user);
 // });
 
-routes.get('/users', async (req, res) => {
-  return res.json({ message: 'teste' });
-});
-
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 // Middleware global
 routes.use(authMiddleware); // Utilizando o routes.use aqui só funciona para as rotas embaixo dele
 
-routes.put('/users', UserController.update);
-// module.exports = routes;
-export default routes;
+/**
+ * Get só para checar quem está vindo pelo token passado
+ */
+routes.get('/users', async (req, res) => {
+  return res.json({
+    id: req.userId,
+    provider: req.userProvider,
+  });
+});
 
+routes.post('/recipients', RecipientsController.store);
+
+routes.put('/users', UserController.update);
+export default routes;

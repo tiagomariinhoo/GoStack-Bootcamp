@@ -34,11 +34,12 @@ class SessionController {
       return res.status(401).json({ error: 'User not found' });
     }
 
+    // Checa se a senha bate com o usuário
     if (!(await user.checkPassword(password))) {
       return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name } = user;
+    const { id, name, provider } = user;
 
     return res.json({
       user: {
@@ -46,9 +47,10 @@ class SessionController {
         name,
         email,
       },
-      token: jwt.sign({ id }, authConfig.secret, {
+      token: jwt.sign({ id, provider }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       }), // Para gerar esse token, no md5 online: gobarberrocketseatnode2
+      // No sign coloca o que quer pegar de informação no token
     });
   }
 }

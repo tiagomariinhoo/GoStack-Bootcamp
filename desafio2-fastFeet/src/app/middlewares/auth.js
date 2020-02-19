@@ -7,6 +7,10 @@ import { promisify } from 'util';
 
 import authConfig from '../../config/auth';
 
+/**
+ * Pra checar se o usuário tá logado
+ * Manda o token através do header no Bearer
+ */
 export default async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
@@ -18,9 +22,9 @@ export default async (req, res, next) => {
 
   try {
     const decoded = await promisify(jwt.verify)(token, authConfig.secret); // Chama a função que é retornada
-
-    // console.log(decoded);
+    // Pega os valores que vieram no payload do jwt
     req.userId = decoded.id; // Dica dada anteriormente, podemos através do middleware, setar as coisas
+    req.userProvider = decoded.provider;
 
     return next();
   } catch (err) {
