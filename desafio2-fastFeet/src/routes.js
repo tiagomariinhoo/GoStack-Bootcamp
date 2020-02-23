@@ -35,6 +35,8 @@ routes.get('/users', async (req, res) => {
 });
 
 routes.post('/recipients', RecipientsController.store);
+routes.put('/recipients', RecipientsController.update);
 
 routes.put('/users', UserController.update);
+
 export default routes;

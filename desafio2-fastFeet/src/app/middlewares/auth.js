@@ -21,7 +21,11 @@ export default async (req, res, next) => {
   const [, token] = authHeader.split(' '); // Tira o Bearer da String
 
   try {
-    const decoded = await promisify(jwt.verify)(token, authConfig.secret); // Chama a função que é retornada
+    const decoded = await promisify(jwt.verify)(
+      token,
+      authConfig.secret,
+      authConfig.expiresIn
+    ); // Chama a função que é retornada
     // Pega os valores que vieram no payload do jwt
     req.userId = decoded.id; // Dica dada anteriormente, podemos através do middleware, setar as coisas
     req.userProvider = decoded.provider;

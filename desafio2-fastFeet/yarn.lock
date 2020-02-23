@@ -25,6 +25,11 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@fnando/cpf@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@fnando/cpf/-/cpf-1.0.1.tgz#59838dc8dcf5e6f9e6fa6022b3411593a733f0e7"
+  integrity sha512-7KdgB+x/825Wk0/qiud0U1QmJQydSBvH/0X8SQ9pAuOzhfzwH1Xsgd6efQFILgFcxE0QvNfYu2HadpPmsUzlgQ==
+
 "@types/node@*":
   version "13.7.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.1.tgz#238eb34a66431b71d2aaddeaa7db166f25971a0d"
