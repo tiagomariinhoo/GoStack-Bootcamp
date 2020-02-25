@@ -7,7 +7,7 @@ import bcrypt from 'bcryptjs';
 class User extends Model {
   static init(sequelize) {
     super.init(
-      {// Mada as colunas que terão na base de dados, evita Primary Key, upd, create_at
+      {// Manda as colunas que terão na base de dados, evita Primary Key, upd, create_at
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         password: Sequelize.VIRTUAL, // Campo virtual não tem na base de dados, só no lado do código
@@ -31,6 +31,11 @@ class User extends Model {
     }); // Hooks são trechos de códigos executados de forma automática
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' }); // Tipo de relacionamento, o model de usuario pertence ao model de File
+    // O 'as' é só pra mudar o nome
   }
 
   checkPassword(password) {

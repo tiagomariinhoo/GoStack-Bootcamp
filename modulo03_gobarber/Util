@@ -37,3 +37,9 @@ Usar o postbird para visualizar a tabela criada
 Modulo 03
 
 Mult part form data
+
+Aux: ``
+
+yarn sequelize migration:create --name=create-files // Cria a tabela de arquivos
+
+* Criar uma nova migration pode ser uma boa estratégia, no caso, para botar o avatar dos usuários
