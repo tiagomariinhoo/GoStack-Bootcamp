@@ -1,0 +1,39 @@
+DOCKER: Vai ajudar a controlar os serviços da aplicação (banco de dados, qualquer serviço externo)
+
+Docker ps pra ver o que tá rodando
+Docker run database, pra rodar o database novamente
+
+SEQUELIZE: Faz a tradução do código JavaScript pro Código SQL
+
+ORM : Forma de abtração do Banco de Dados
+O MVC (model view controller), as tabelas viram models
+
+Migrations: Controle de versão pra base de dados, mantém atualizada entre todos os desenvolvedores
+Uma migration para cada tabela
+
+Seed: Popula a base de dados para desenvolvimento
+    - Utilizado para popular dados para testes
+    - Executável apenas por código
+
+Arquitetura MVC
+- As regras de negócio ficam no Controller (tipo enviar email para um cliente novo cadastrado)
+- A View aqui node NodeJS será apenas o JSON retornado para o Front-end
+
+Prettier e Eslint pra ajudar na escrita do código
+
+sudo docker ps - pra ver o que tá rodando
+"sudo docker ps -a" : para visualizar todos os containers mesmo os que não estão rodando
+Postbird
+
+sudo docker start database : para rodar o container (lembra de dar este comando antes de dar o yarn sequelize db:migrate)
+
+Usar o postbird para visualizar a tabela criada
+
+"yarn sequelize db:migrate:undo desfaz a última migration ou ...undo:all que desfaz todas as migrations"
+
+
+---------------------------------------------
+
+Modulo 03
+
+Mult part form data

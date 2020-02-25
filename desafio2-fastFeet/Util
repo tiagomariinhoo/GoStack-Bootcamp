@@ -39,3 +39,7 @@ Autorização - Provar que possui permissão para fazer ou ver o que você está
 
 Antes de emitir o JWT, o usuário tem que passar por uma Autenticação
 geralmente com usuário e senha. Após a validação, gera o JWT.
+
+Em resumo, logando na conta Admin que temos no banco (criada através do desafio 2 goStack)
+basta através do mod SessionsPost.create, logar e pegar o token dele. Através do seu Token, coloca no bearer
+E assim, pega o Provider através do payload.
