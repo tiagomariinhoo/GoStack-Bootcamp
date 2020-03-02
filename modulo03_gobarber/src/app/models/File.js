@@ -6,12 +6,13 @@ class File extends Model {
       {
         name: Sequelize.STRING,
         path: Sequelize.STRING,
-        url: { // Campo virtual
+        url: {
+          // Campo virtual
           type: Sequelize.VIRTUAL, // Não existe na tabela
           get() {
             return `http://localhost:3333/files/${this.path}`;
-          }
-        }
+          },
+        },
       },
       {
         sequelize,

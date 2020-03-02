@@ -36,6 +36,9 @@ Usar o postbird para visualizar a tabela criada
 
 Modulo 03
 
+Se der algum problema em alguma requisição, pode ser que precise atualizar o token para alguem que seja
+provider == true. Então é necessário logar com aquela conta para pegar o token
+
 Mult part form data
 
 Aux: ``
@@ -43,3 +46,5 @@ Aux: ``
 yarn sequelize migration:create --name=create-files // Cria a tabela de arquivos
 
 * Criar uma nova migration pode ser uma boa estratégia, no caso, para botar o avatar dos usuários
+
+yarn sequelize migration:create --name=create-appointments (para fazer a migration dessa tabela com o nome appointments)
