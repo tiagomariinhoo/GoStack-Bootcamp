@@ -48,3 +48,12 @@ yarn sequelize migration:create --name=create-files // Cria a tabela de arquivos
 * Criar uma nova migration pode ser uma boa estratégia, no caso, para botar o avatar dos usuários
 
 yarn sequelize migration:create --name=create-appointments (para fazer a migration dessa tabela com o nome appointments)
+
+
+Mongodb para o banco não relacional
+
+docker run --name mongobarber -p 27017:27017 -d -t mongo (imagem rodando o mongodb)
+
+// Para testar se tá rodando basta ir em localhost:27017 e ver a msg "it looks like you are trying..."
+
+yarn add mongoose
