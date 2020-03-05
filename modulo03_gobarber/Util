@@ -34,6 +34,13 @@ Usar o postbird para visualizar a tabela criada
 
 ---------------------------------------------
 
+para criar o database postgres:
+sudo docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+
+Para criar o database do gobarber por exemplo, cria direto no postbird
+
+-------------------------------------
+
 Modulo 03
 
 Se der algum problema em alguma requisição, pode ser que precise atualizar o token para alguem que seja
