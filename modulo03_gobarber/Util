@@ -41,7 +41,7 @@ provider == true. Então é necessário logar com aquela conta para pegar o toke
 
 Mult part form data
 
-Aux: ``
+Aux: `` `
 
 yarn sequelize migration:create --name=create-files // Cria a tabela de arquivos
 
@@ -57,3 +57,8 @@ docker run --name mongobarber -p 27017:27017 -d -t mongo (imagem rodando o mongo
 // Para testar se tá rodando basta ir em localhost:27017 e ver a msg "it looks like you are trying..."
 
 yarn add mongoose
+
+Baixar o mongodb compass e quanto cadastrar um novo agendamento ele já coloca lá
+
+O SQL é para o estruturamento dos dados que tem muitas relações
+O MongoDb é para performance, quanto não precisa de muitas relações

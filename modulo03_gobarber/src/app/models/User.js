@@ -7,7 +7,8 @@ import bcrypt from 'bcryptjs';
 class User extends Model {
   static init(sequelize) {
     super.init(
-      {// Manda as colunas que terão na base de dados, evita Primary Key, upd, create_at
+      {
+        // Manda as colunas que terão na base de dados, evita Primary Key, upd, create_at
         name: Sequelize.STRING,
         email: Sequelize.STRING,
         password: Sequelize.VIRTUAL, // Campo virtual não tem na base de dados, só no lado do código
