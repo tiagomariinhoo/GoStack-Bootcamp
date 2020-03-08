@@ -1,11 +1,27 @@
 import Sequelize, { Model } from 'sequelize';
+import { isBefore, subHours } from 'date-fns';
 
+// SubHours remove x hroas da data
 class Appointment extends Model {
   static init(sequelize) {
     super.init(
       {
         date: Sequelize.DATE,
         canceled_at: Sequelize.DATE,
+        past: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(this.date, new Date());
+          },
+        },
+        cancelable: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            // São os agendamentos que ainda podem ser cancelados
+            // Ou seja, que ainda tem mais de duas horas para acontecer
+            return isBefore(new Date(), subHours(this.date, 2));
+          },
+        },
       },
       {
         sequelize,

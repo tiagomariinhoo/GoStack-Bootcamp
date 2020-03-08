@@ -39,6 +39,10 @@ sudo docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d post
 
 Para criar o database do gobarber por exemplo, cria direto no postbird
 
+// Criando o banco para as atividades em segundo plano
+// Lembrar disso aqui caso dê erro, tem que criar e rodar
+docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+
 -------------------------------------
 
 Modulo 03
@@ -69,3 +73,15 @@ Baixar o mongodb compass e quanto cadastrar um novo agendamento ele já coloca l
 
 O SQL é para o estruturamento dos dados que tem muitas relações
 O MongoDb é para performance, quanto não precisa de muitas relações
+
+Nodemailer - Lib para enviar emails
+
+Handlebars - Template engine para emails
+
+A pasta "Partials", dentro de "Views/Emails" são arquivos que eu posso importar dentro de alguns emails
+
+Background jobs - Serviços que ficam rodando em segundo plano
+bee-queue: Para trabalhos em segundo plano no nodejs
+kue (igual ao bee-queue mas com algumas funcionalidades a mais e mais lento)
+
+yarn queue para deixar a fila (jobs) rodando

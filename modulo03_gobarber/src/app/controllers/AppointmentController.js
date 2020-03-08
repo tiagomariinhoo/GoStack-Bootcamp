@@ -6,6 +6,9 @@ import User from '../models/User';
 import File from '../models/File';
 import Notification from '../schemas/Notification';
 
+import CancellationMail from '../jobs/CancellationMail';
+import Queue from '../../lib/Queue';
+
 class AppointmentController {
   /**
    * Lista os agendamentos para o usuário comum
@@ -21,7 +24,7 @@ class AppointmentController {
       order: ['date'],
       limit: 20, // Lista no máximo 20 registros
       offset: (page - 1) * 20, // Quantos registros eu quero pular
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       include: [
         {
           model: User,
@@ -90,11 +93,11 @@ class AppointmentController {
         .json({ error: 'Appointment date is not available' });
     }
 
-    if (req.userId === provider_id) {
-      return res
-        .status(400)
-        .json({ error: 'Appointment not available for himself' });
-    }
+    // if (req.userId === provider_id) {
+    //   return res
+    //     .status(400)
+    //     .json({ error: 'Appointment not available for himself' });
+    // }
 
     // Se passou de tudo isso anteriormente, agora criamos o agendamento
 
@@ -125,11 +128,24 @@ class AppointmentController {
   }
 
   async delete(req, res) {
-    const appointment = await Appointment.findByPk(req.params.id);
+    const appointment = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'email'],
+        },
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name'],
+        },
+      ],
+    });
 
     // Checa se o ID é diferente do Usuário que está logado
     // Já que só quem pode cancelar é o próprio dono do agendamento
-    if (appointment.user_id != req.userId) {
+    if (appointment.user_id !== req.userId) {
       return res.status(401).json({
         error: "You don't have permission to cancel this appointment.",
       });
@@ -149,6 +165,11 @@ class AppointmentController {
     appointment.canceled_at = new Date();
 
     await appointment.save();
+
+    await Queue.add(CancellationMail.key, {
+      appointment,
+      // teste: 'teste' Se quisesse passar outro dado pegaria ele na desestruturação lá no CancellationMail data
+    });
 
     return res.json(appointment);
   }
