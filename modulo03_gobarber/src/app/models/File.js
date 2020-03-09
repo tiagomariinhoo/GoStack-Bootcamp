@@ -10,7 +10,7 @@ class File extends Model {
           // Campo virtual
           type: Sequelize.VIRTUAL, // Não existe na tabela
           get() {
-            return `http://localhost:3333/files/${this.path}`;
+            return `${process.env.APP_URL}/files/${this.path}`;
           },
         },
       },

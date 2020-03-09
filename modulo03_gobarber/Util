@@ -85,3 +85,10 @@ bee-queue: Para trabalhos em segundo plano no nodejs
 kue (igual ao bee-queue mas com algumas funcionalidades a mais e mais lento)
 
 yarn queue para deixar a fila (jobs) rodando
+
+Ferramenta para tratamento de erros: Sentry // Lá mostra passo a passo de onde botar as coisas no código
+express-async-errors já que o express não consegue pegar os erros dos métodos async
+
+.env - guarda as variáveis de ambiente
+
+dotenv - pra adicionar as coisas do env no código
