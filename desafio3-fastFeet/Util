@@ -1,0 +1,65 @@
+https://github.com/Rocketseat/bootcamp-gostack-desafio-02/blob/master/README.md#desafio-02-iniciando-aplica%C3%A7%C3%A3o
+
+yarn install
+
+yarn install sequelize
+
+yarn sequelize init
+
+yarn sequelize db:migrate (undo e undo:all para desfazer)
+
+yarn sequelize seed:generate --name admin-user
+
+yarn sequelize db:seed:all
+
+yarn dev (para rodar)
+
+------ Caso dê erro no db, pode ser o docker
+
+sudo docker ps -a (para mostrar os disponíveis)
+
+sudo docker run -d database (nome)
+
+yarn dev
+
+------- Caso dê erro porque a porta já está sendo usada, alguma outra aplicação pode estar usando, então:
+lsof -i:PORTA
+kill -9 [PID]
+
+----------
+
+Post para o User, faz a validação, vendo se o usuário loga com o email e senha passado
+o Session cria o usuário
+
+--------- Sobre o JWT
+https://imasters.com.br/back-end/autenticacao-json-web-token-jwt-em-node-js
+
+Autenticação - Provar que você é você mesmo
+Autorização - Provar que possui permissão para fazer ou ver o que você está tentando
+
+Antes de emitir o JWT, o usuário tem que passar por uma Autenticação
+geralmente com usuário e senha. Após a validação, gera o JWT.
+
+Em resumo, logando na conta Admin que temos no banco (criada através do desafio 2 goStack)
+basta através do mod SessionsPost.create, logar e pegar o token dele. Através do seu Token, coloca no bearer
+E assim, pega o Provider através do payload.
+
+
+
+----------------------------
+
+Funcionalidades Desafio 03
+
+1 - Gestão de entregadores
+
+O Admin pode cadastrar entregadores para a plataforma
+Entregador possui:
+id
+name
+avatar_id (foto do entregador)
+email
+created_at
+updated_at
+
+Rotas de listagem/cadastro/atualização/remoção de entregadores
+Administradores autenticados na aplicação
