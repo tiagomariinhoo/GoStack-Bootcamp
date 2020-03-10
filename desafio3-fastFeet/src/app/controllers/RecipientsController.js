@@ -24,7 +24,7 @@ class RecipientsController {
     }
 
     if (Cpf.isValid(req.body.cpf) === false) {
-      return res.status(400).json({ error: 'Cpf input is incorrect'});
+      return res.status(400).json({ error: 'Cpf input is incorrect' });
     }
 
     const { cpf } = req.body;

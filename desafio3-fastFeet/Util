@@ -48,6 +48,8 @@ E assim, pega o Provider através do payload.
 
 ----------------------------
 
+Pra criar uma nova migration: yarn sequelize migration:create --name=create-users
+
 Funcionalidades Desafio 03
 
 1 - Gestão de entregadores
