@@ -14,17 +14,17 @@ class DeliverymanController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    // const devliverymanExists = await Deliveryman.findOne({
-    //   where: {
-    //     email: req.body.email,
-    //   },
-    // });
+    const devliverymanExists = await Deliveryman.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
 
-    // if (devliverymanExists) {
-    //   return res.status(400).json({
-    //     error: 'Deliveryman already exists.',
-    //   });
-    // }
+    if (devliverymanExists) {
+      return res.status(400).json({
+        error: 'Deliveryman already exists.',
+      });
+    }
 
     const { name, email } = await Deliveryman.create(req.body);
 
@@ -36,9 +36,9 @@ class DeliverymanController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
-      email: Yup.string().required(),
+      oldEmail: Yup.string().required(),
       name: Yup.string(),
-      newEmail: Yup.string().email(),
+      email: Yup.string().email(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -48,7 +48,7 @@ class DeliverymanController {
     }
 
     const deliveryman = await Deliveryman.findOne({
-      where: { email: req.body.email },
+      where: { email: req.body.oldEmail },
     });
 
     if (!deliveryman) {
@@ -57,27 +57,54 @@ class DeliverymanController {
       });
     }
 
-    const { name, newEmail } = req.body;
+    const { name, email } = req.body;
 
-    if (!name && !newEmail) {
+    if (!name && !email) {
       return res.status(400).json({
         error: 'At least name or new email must be provided.',
       });
     }
 
-    await deliveryman.update(req.body);
+    const { id } = await deliveryman.update(req.body);
 
     return res.json({
+      id,
       name,
-      newEmail,
+      email,
     });
   }
 
   async index(req, res) {
-    return res.json();
+
+    const deliverymans = await Deliveryman.findAll();
+
+    return res.json(deliverymans);
   }
 
   async delete(req, res) {
+
+    if(!req.body.email) {
+      return res.status(400).json({
+        error: "Email does not exists"
+      });
+    }
+
+    const deliveryman = await Deliveryman.findOne({
+      where: { email: req.body.email },
+    });
+
+    if(!deliveryman) {
+      return res.status(400).json({
+        erorr: "Deliveryman does not exists"
+      });
+    }
+
+    Deliveryman.destroy({
+      where: {
+        email: req.body.email,
+      }
+    })
+
     return res.json();
   }
 }
