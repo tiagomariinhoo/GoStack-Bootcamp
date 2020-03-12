@@ -7,6 +7,7 @@ import SessionController from './app/controllers/SessionController';
 import RecipientsController from './app/controllers/RecipientsController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import FileController from './app/controllers/FileController';
+import ParcelController from './app/controllers/ParcelController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -49,5 +50,11 @@ routes.post('/deliverymans', DeliverymanController.store);
 routes.put('/deliverymans', DeliverymanController.update);
 routes.get('/deliverymans', DeliverymanController.index);
 routes.delete('/deliverymans', DeliverymanController.delete);
+
+// CRUD para a gestão de encomendas
+routes.post('/parcels', ParcelController.store);
+routes.put('/parcels', ParcelController.update);
+routes.get('/parcels', ParcelController.index);
+routes.delete('/parcels', ParcelController.delete);
 
 export default routes;

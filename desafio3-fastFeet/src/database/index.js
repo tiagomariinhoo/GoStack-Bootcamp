@@ -13,7 +13,7 @@ import Deliveryman from '../app/models/Deliveryman';
 import File from '../app/models/File';
 import Parcel from '../app/models/Parcel';
 
-const models = [User, Recipients, Deliveryman, File];
+const models = [User, Recipients, Deliveryman, File, Parcel];
 
 class Database {
   constructor() {

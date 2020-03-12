@@ -18,7 +18,7 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
           allowNull: false,
-        }
+        },
       },
       deliveryman_id: {
         type: Sequelize.INTEGER,
@@ -28,7 +28,7 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
           allowNull: false,
-        }
+        },
       },
       signature_id: {
         type: Sequelize.INTEGER,
@@ -38,14 +38,14 @@ module.exports = {
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
           allowNull: true,
-        }
+        },
       },
       product: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       canceled_at: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: true,
         unique: true,
       },

@@ -75,17 +75,15 @@ class DeliverymanController {
   }
 
   async index(req, res) {
-
     const deliverymans = await Deliveryman.findAll();
 
     return res.json(deliverymans);
   }
 
   async delete(req, res) {
-
-    if(!req.body.email) {
+    if (!req.body.email) {
       return res.status(400).json({
-        error: "Email does not exists"
+        error: 'Email does not exists',
       });
     }
 
@@ -93,17 +91,17 @@ class DeliverymanController {
       where: { email: req.body.email },
     });
 
-    if(!deliveryman) {
+    if (!deliveryman) {
       return res.status(400).json({
-        erorr: "Deliveryman does not exists"
+        erorr: 'Deliveryman does not exists',
       });
     }
 
     Deliveryman.destroy({
       where: {
         email: req.body.email,
-      }
-    })
+      },
+    });
 
     return res.json();
   }
