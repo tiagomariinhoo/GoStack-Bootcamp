@@ -19,9 +19,9 @@ class RecipientsController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    if (req.userProvider === false) {
-      return res.status(400).json({ error: 'Just admin can store recipients' });
-    }
+    // if (req.userProvider === false) {
+    //   return res.status(400).json({ error: 'Just admin can store recipients' });
+    // }
 
     if (Cpf.isValid(req.body.cpf) === false) {
       return res.status(400).json({ error: 'Cpf input is incorrect' });

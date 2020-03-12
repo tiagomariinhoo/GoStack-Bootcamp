@@ -2,6 +2,10 @@ import * as Yup from 'yup';
 import Parcel from '../models/Parcel';
 import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipients';
+
+import NotificationMail from '../jobs/NotificationMail';
+import Queue from '../../lib/Queue';
+
 /**
  * Data de inicio cadastrada quando for feita
  * a retirada do produto pelo entregador
@@ -48,8 +52,9 @@ class ParcelController {
 
     const { id } = await Parcel.create(req.body);
 
-    //Todo: Colocar pra enviar email ao deliveryman
-    //https://blog.mailtrap.io/sending-emails-with-nodemailer/
+    await Queue.add(NotificationMail.key, {
+      req
+    })
 
     return res.json({
       id,

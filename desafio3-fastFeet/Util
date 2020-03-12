@@ -50,6 +50,9 @@ E assim, pega o Provider através do payload.
 
 Pra criar uma nova migration: yarn sequelize migration:create --name=create-users
 
+Enviando emails: https://blog.mailtrap.io/sending-emails-with-nodemailer/
+Enviando emails nodemailerhbs (para templates html): https://nicholaspretorius.github.io/til0025/
+
 Funcionalidades Desafio 03
 
 1 - Gestão de entregadores

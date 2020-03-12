@@ -1,9 +1,9 @@
 import Bee from 'bee-queue';
-import CancellationMail from '../app/jobs/CancellationMail';
+import NotificationMail from '../app/jobs/NotificationMail';
 import redisConfig from '../config/redis';
 
 // Da mesma forma que os models
-const jobs = [CancellationMail];
+const jobs = [NotificationMail];
 
 class Queue {
   constructor() {
@@ -17,9 +17,6 @@ class Queue {
     jobs.forEach(({ key, handle }) => {
       this.queues[key] = {
         bee: new Bee(key, {
-          // Passar a configuração assim dentro do módulo config
-          // Nada mais é do que fazer o json lá e colocar aqui
-          // Pra não ficar algo totalmente sujo de se ler
           redis: redisConfig,
         }),
         handle, // Handle que vem de dentro do job
