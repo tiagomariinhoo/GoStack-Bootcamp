@@ -9,7 +9,7 @@ class Mail {
     this.transporter = nodemailer.createTransport(MailConfig);
   }
 
-  sendParcelEmail(product, deliveryman, recipient) {
+  sendParcelEmail(product, deliveryman, recipient, onError = () => {}) {
     const mailOptions = {
       from: 'equipeFastFeet@noreply.com',
       to: deliveryman.email,
@@ -38,11 +38,14 @@ class Mail {
       })
     );
 
-    this.transporter.sendMail(mailOptions, error => {
-      if (error) {
-        console.log('Mail error!');
-      }
-    });
+    return new Promise((resolve, reject) => {
+      this.transporter.sendMail(mailOptions, error => {
+        if (error) {
+          reject(error);
+        }
+        resolve();
+      });
+    })
   }
 }
 

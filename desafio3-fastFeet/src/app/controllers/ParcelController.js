@@ -51,16 +51,28 @@ class ParcelController {
       });
     }
 
-    Mail.sendParcelEmail(product, deliveryman, recipient);
+    const errorMail = Mail.sendParcelEmail(product, deliveryman, recipient);
 
     const { id } = await Parcel.create(req.body);
-
-    return res.json({
-      id,
-      product,
-      deliveryman_id,
-      recipient_id,
-    });
+    errorMail.then(
+      () => {
+        return res.json({
+          id,
+          product,
+          deliveryman_id,
+          recipient_id,
+        });
+      },
+      (err) => {
+        return res.json({
+          id,
+          product,
+          deliveryman_id,
+          recipient_id,
+          error: 'Mail error!'
+        });
+      }
+    );
   }
 
   async update(req, res) {
