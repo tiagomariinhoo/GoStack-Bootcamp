@@ -1,25 +1,27 @@
 import nodemailer from 'nodemailer';
-import { resolve } from 'path';
-import exphbs from 'express-handlebars';
 import nodemailerhbs from 'nodemailer-express-handlebars';
-import mailConfig from '../config/mail';
+import exphbs from 'express-handlebars';
+import { resolve } from 'path';
+import MailConfig from '../config/mail';
 
 class Mail {
   constructor() {
-    const { host, port, secure, path } = mailConfig;
-
-    this.transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure,
-      auth: auth.user ? auth: null,
-    });
-
-    this.configureTemplates();
+    this.transporter = nodemailer.createTransport(MailConfig);
   }
 
-  configureTemplates() {
-    // Caminho do template
+  sendParcelEmail(product, deliveryman, recipient) {
+    const mailOptions = {
+      from: 'equipeFastFeet@noreply.com',
+      to: deliveryman.email,
+      subject: 'Encomenda disponível para retirada',
+      template: 'notification',
+      context: {
+        deliverymamName: deliveryman.name,
+        productName: product,
+        recipientName: recipient.name,
+      },
+    };
+
     const viewPath = resolve(__dirname, '..', 'app', 'views', 'emails');
 
     this.transporter.use(
@@ -29,11 +31,19 @@ class Mail {
           layoutsDir: resolve(viewPath, 'layouts'),
           partialsDir: resolve(viewPath, 'partials'),
           defaultLayout: 'default',
-          extname: '.hbs'
+          extname: '.hbs',
         }),
         viewPath,
         extName: '.hbs',
-      }),
-    )
+      })
+    );
+
+    this.transporter.sendMail(mailOptions, error => {
+      if (error) {
+        console.log('Mail error!');
+      }
+    });
   }
 }
+
+export default new Mail();

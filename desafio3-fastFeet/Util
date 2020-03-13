@@ -47,11 +47,34 @@ E assim, pega o Provider através do payload.
 
 
 ----------------------------
+SEND MAIL TEMPLATE
 
+
+import MailConfig from '../../config/mail';
+import mailer from 'nodemailer';
+
+    // const transporter = mailer.createTransport(MailConfig);
+
+  // const message = {
+    //   from: 'equipeFasteFeet@noreply.com',
+    //   to: deliveryman.email,
+    //   subject: 'Encomenda disponível para retirada',
+    //   html: '<b> Teste teste </b>',
+    // };
+
+    // transporter.sendMail(message, (error, info) => {
+    //   if (error) {
+    //     return res.status(400).json({
+    //       error: 'Email error!',
+    //     });
+    //   }
+    // });
+----------------------------
 Pra criar uma nova migration: yarn sequelize migration:create --name=create-users
 
 Enviando emails: https://blog.mailtrap.io/sending-emails-with-nodemailer/
 Enviando emails nodemailerhbs (para templates html): https://nicholaspretorius.github.io/til0025/
+Usando nodemailer e handlebars (para um template melhor): https://alexanderpaterson.com/posts/use-handlebars-to-send-great-emails-from-node-applications
 
 Funcionalidades Desafio 03
 

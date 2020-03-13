@@ -3,8 +3,7 @@ import Parcel from '../models/Parcel';
 import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipients';
 
-import NotificationMail from '../jobs/NotificationMail';
-import Queue from '../../lib/Queue';
+import Mail from '../../lib/Mail';
 
 /**
  * Data de inicio cadastrada quando for feita
@@ -38,23 +37,23 @@ class ParcelController {
 
     const { recipient_id, deliveryman_id, product } = req.body;
 
-    if (!(await Recipient.findByPk(recipient_id))) {
+    const recipient = await Recipient.findByPk(recipient_id);
+    if (!recipient) {
       return res.status(400).json({
         error: 'Recipient does not exists',
       });
     }
 
-    if (!(await Deliveryman.findByPk(deliveryman_id))) {
+    const deliveryman = await Deliveryman.findByPk(deliveryman_id);
+    if (!deliveryman) {
       return res.status(400).json({
         error: 'Deliveryman does not exists',
       });
     }
 
-    const { id } = await Parcel.create(req.body);
+    Mail.sendParcelEmail(product, deliveryman, recipient);
 
-    await Queue.add(NotificationMail.key, {
-      req
-    })
+    const { id } = await Parcel.create(req.body);
 
     return res.json({
       id,
