@@ -54,36 +54,36 @@ class ParcelController {
     const errorMail = Mail.sendParcelEmail(product, deliveryman, recipient);
 
     const { id } = await Parcel.create(req.body);
+    // Não é retornada nada já que o improtante é cadastrar no banco
+    // O email eu posso notificar que deu um erro de alguma forma
+    // Fiz isso apenas para testar o uso de Promises
     errorMail.then(
+      () => {},
       () => {
-        return res.json({
-          id,
-          product,
-          deliveryman_id,
-          recipient_id,
-        });
-      },
-      (err) => {
-        return res.json({
-          id,
-          product,
-          deliveryman_id,
-          recipient_id,
-          error: 'Mail error!'
-        });
+        console.log('Mail error!');
       }
     );
+
+    return res.json({
+      id,
+      product,
+      deliveryman_id,
+      recipient_id,
+    });
   }
 
   async update(req, res) {
+    // todo
     return res.json();
   }
 
   async index(req, res) {
+    // todo
     return res.json();
   }
 
   async delete(req, res) {
+    // todo
     return res.json();
   }
 }

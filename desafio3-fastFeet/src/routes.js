@@ -8,6 +8,8 @@ import RecipientsController from './app/controllers/RecipientsController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import FileController from './app/controllers/FileController';
 import ParcelController from './app/controllers/ParcelController';
+import PickupController from './app/controllers/PickupController';
+import DeliverController from './app/controllers/DeliverController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -56,5 +58,9 @@ routes.post('/parcels', ParcelController.store);
 routes.put('/parcels', ParcelController.update);
 routes.get('/parcels', ParcelController.index);
 routes.delete('/parcels', ParcelController.delete);
+
+// Retirada e entrega do parcel
+routes.put('/pickup', PickupController.update);
+routes.put('/deliver', DeliverController.update);
 
 export default routes;
