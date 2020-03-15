@@ -111,6 +111,10 @@ class ParcelController {
       });
     }
 
+    /**
+     * Se algum campo for null, ele não troca
+     */
+
     await parcel.update({
       deliveryman_id: req.body.deliveryman_id,
       recipient_id: req.body.recipient_id,
@@ -121,13 +125,35 @@ class ParcelController {
   }
 
   async index(req, res) {
-    // todo
-    return res.json();
+    const parcels = await Parcel.findAll();
+
+    return res.json(parcels);
   }
 
   async delete(req, res) {
-    // todo
-    return res.json();
+    const parcel = await Parcel.findByPk(req.params.id);
+
+    if (!parcel) {
+      return res.status(400).json({
+        error: 'Parcel does not exists',
+      });
+    }
+
+    if (parcel.end_date) {
+      return res.status(400).json({
+        error: 'The parcel has already been delivered and cannot be deleted',
+      });
+    }
+
+    Parcel.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    return res.json({
+      success: 'The parcel has been successfully deleted',
+    });
   }
 }
 

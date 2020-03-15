@@ -57,7 +57,7 @@ routes.delete('/deliverymans', DeliverymanController.delete);
 routes.post('/parcels', ParcelController.store);
 routes.put('/parcels/:id', ParcelController.update);
 routes.get('/parcels', ParcelController.index);
-routes.delete('/parcels', ParcelController.delete);
+routes.delete('/parcels/:id', ParcelController.delete);
 
 // Retirada e entrega do parcel
 routes.put('/pickup', PickupController.update);
