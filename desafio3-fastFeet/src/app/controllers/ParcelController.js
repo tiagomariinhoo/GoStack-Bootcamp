@@ -72,9 +72,52 @@ class ParcelController {
     });
   }
 
+  /**
+   * Se a encomenda já foi entregue
+   * não pode alterar nada.
+   *
+   * Se puder ser alterada, pode
+   * ser alterada apenas o:
+   * entregador
+   * destinatário
+   * nome do produto
+   */
   async update(req, res) {
-    // todo
-    return res.json();
+    const parcel = await Parcel.findByPk(req.params.id);
+
+    if (!parcel) {
+      return res.status(400).json({
+        error: 'Parcel does not exists',
+      });
+    }
+
+    if (parcel.end_date) {
+      return res.status(400).json({
+        error: 'The Parcel has already been delivered and cannot be changed',
+      });
+    }
+
+    const { recipient_id, deliveryman_id } = req.body;
+
+    if (!(await Deliveryman.findByPk(deliveryman_id))) {
+      return res.status(400).json({
+        error: 'Deliveryman does not exists',
+      });
+    }
+
+    if (!(await Recipient.findByPk(recipient_id))) {
+      return res.status(400).json({
+        error: 'Recipient does not exists',
+      });
+    }
+
+    await parcel.update({
+      deliveryman_id: req.body.deliveryman_id,
+      recipient_id: req.body.recipient_id,
+      product: req.body.product,
+    });
+
+    return res.json(parcel);
   }
 
   async index(req, res) {

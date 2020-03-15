@@ -35,11 +35,11 @@ class PickupController {
       });
     }
 
-    // if (parcel.start_date !== null) {
-    //   return res.status(400).json({
-    //     error: 'Parcel already pickup',
-    //   });
-    // }
+    if (parcel.start_date !== null) {
+      return res.status(400).json({
+        error: 'Parcel already pickup',
+      });
+    }
 
     if (parcel.deliveryman_id !== deliveryman_id) {
       return res.status(400).json({

@@ -55,12 +55,12 @@ routes.delete('/deliverymans', DeliverymanController.delete);
 
 // CRUD para a gestão de encomendas
 routes.post('/parcels', ParcelController.store);
-routes.put('/parcels', ParcelController.update);
+routes.put('/parcels/:id', ParcelController.update);
 routes.get('/parcels', ParcelController.index);
 routes.delete('/parcels', ParcelController.delete);
 
 // Retirada e entrega do parcel
 routes.put('/pickup', PickupController.update);
-routes.put('/deliver', DeliverController.update);
+routes.put('/deliver/:id', DeliverController.update);
 
 export default routes;
