@@ -38,7 +38,7 @@ routes.put('/deliver/:id', upload.single('file'), DeliverController.update);
 
 routes.post('/delivery/:id/problems', DeliveryProblemsController.store);
 routes.get('/delivery/:id/problems', DeliveryProblemsController.index);
-routes.delete('/delivery/problem/:id/cancel-delivery', DeliveryProblemsController.delete);
+routes.delete('/problem/:id/cancel-delivery', DeliveryProblemsController.delete);
 
 // Middleware global
 routes.use(authMiddleware); // Utilizando o routes.use aqui só funciona para as rotas embaixo dele
