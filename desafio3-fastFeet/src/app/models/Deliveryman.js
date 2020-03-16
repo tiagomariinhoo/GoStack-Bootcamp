@@ -6,6 +6,8 @@ class Deliveryman extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        last_pickup_date: Sequelize.DATE,
+        pickup_times: Sequelize.INTEGER,
       },
       {
         sequelize,

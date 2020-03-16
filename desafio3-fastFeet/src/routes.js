@@ -10,6 +10,7 @@ import FileController from './app/controllers/FileController';
 import ParcelController from './app/controllers/ParcelController';
 import PickupController from './app/controllers/PickupController';
 import DeliverController from './app/controllers/DeliverController';
+import ParcelDeliveredController from './app/controllers/ParcelDeliveredController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -26,6 +27,13 @@ const upload = multer(multerConfig);
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+
+routes.get('/deliverymans/:id', DeliverymanController.index);
+routes.get('/deliverymans/:id/deliveries', ParcelDeliveredController.index);
+
+// Retirada e entrega do parcel
+routes.put('/pickup/:id', PickupController.update);
+routes.put('/deliver/:id', DeliverController.update);
 
 // Middleware global
 routes.use(authMiddleware); // Utilizando o routes.use aqui só funciona para as rotas embaixo dele
@@ -50,7 +58,6 @@ routes.post('/files', upload.single('file'), FileController.store);
 // CRUD para os entregadores só por Admin Autenticado
 routes.post('/deliverymans', DeliverymanController.store);
 routes.put('/deliverymans', DeliverymanController.update);
-routes.get('/deliverymans', DeliverymanController.index);
 routes.delete('/deliverymans', DeliverymanController.delete);
 
 // CRUD para a gestão de encomendas
@@ -58,9 +65,5 @@ routes.post('/parcels', ParcelController.store);
 routes.put('/parcels/:id', ParcelController.update);
 routes.get('/parcels', ParcelController.index);
 routes.delete('/parcels/:id', ParcelController.delete);
-
-// Retirada e entrega do parcel
-routes.put('/pickup', PickupController.update);
-routes.put('/deliver/:id', DeliverController.update);
 
 export default routes;

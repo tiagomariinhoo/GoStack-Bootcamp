@@ -1,5 +1,6 @@
 import * as Yup from 'yup';
 import Deliveryman from '../models/Deliveryman';
+import Parcel from '../models/Parcel';
 
 class DeliverymanController {
   async store(req, res) {
@@ -74,10 +75,26 @@ class DeliverymanController {
     });
   }
 
+  /**
+   * Funcionalidade do entregador
+   * Mostrar as encomendas que não foram entregues ou canceladas
+   */
   async index(req, res) {
-    const deliverymans = await Deliveryman.findAll();
+    if (!(await Deliveryman.findByPk(req.params.id))) {
+      return res.status(400).json({
+        error: 'Deliveryman does not exists',
+      });
+    }
 
-    return res.json(deliverymans);
+    const parcel = await Parcel.findAll({
+      where: {
+        deliveryman_id: req.params.id,
+        canceled_at: null,
+        end_date: null,
+      },
+    });
+
+    return res.json(parcel);
   }
 
   async delete(req, res) {
