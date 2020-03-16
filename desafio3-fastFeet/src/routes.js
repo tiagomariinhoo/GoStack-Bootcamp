@@ -11,6 +11,7 @@ import ParcelController from './app/controllers/ParcelController';
 import PickupController from './app/controllers/PickupController';
 import DeliverController from './app/controllers/DeliverController';
 import ParcelDeliveredController from './app/controllers/ParcelDeliveredController';
+import DeliveryProblemsController from './app/controllers/DeliveryProblemsController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -33,7 +34,11 @@ routes.get('/deliverymans/:id/deliveries', ParcelDeliveredController.index);
 
 // Retirada e entrega do parcel
 routes.put('/pickup/:id', PickupController.update);
-routes.put('/deliver/:id', DeliverController.update);
+routes.put('/deliver/:id', upload.single('file'), DeliverController.update);
+
+routes.post('/delivery/:id/problems', DeliveryProblemsController.store);
+routes.get('/delivery/:id/problems', DeliveryProblemsController.index);
+routes.delete('/delivery/problem/:id/cancel-delivery', DeliveryProblemsController.delete);
 
 // Middleware global
 routes.use(authMiddleware); // Utilizando o routes.use aqui só funciona para as rotas embaixo dele

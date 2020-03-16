@@ -20,14 +20,6 @@ class DeliverController {
 
     const time = new Date().getTime();
 
-    const signature = await File.findByPk(req.body.signature_id);
-
-    if (!signature) {
-      return res.status(400).json({
-        error: 'File does not exists',
-      });
-    }
-
     if (parcel.end_date) {
       return res.status(400).json({
         error: 'Parcel has already been delivered',
@@ -40,8 +32,21 @@ class DeliverController {
       });
     }
 
+    const { originalname: name, filename: path } = req.file;
+
+    if (!req.file) {
+      return res.status(400).json({
+        error: 'File does not exsits',
+      });
+    }
+
+    const { id } = await File.create({
+      name,
+      path,
+    });
+
     await parcel.update({
-      signature_id: req.body.signature_id,
+      signature_id: id,
       end_date: time,
     });
 
