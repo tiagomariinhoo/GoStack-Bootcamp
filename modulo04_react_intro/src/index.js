@@ -1,7 +1,8 @@
-/**
- * Arquivo de entrada da aplicação
- */
+import React from 'react';
+import { render } from 'react-dom';
 
- const soma = (a, b) => a + b;
- 
- alert(soma(1, 3));
+import App from './App';
+
+// Renderiza o componente do React
+// Separar o componente principal do React
+render(<App />, document.getElementById('app'));
