@@ -1,0 +1,46 @@
+.post-item {
+ background-color: #FFFFFF; 
+ overflow: hidden;
+ margin: 15px 10px 10px 10px;
+ border-radius: 0.5em;
+ display: block;
+}
+
+.profile-content {
+  display: flex;
+}
+
+.persona-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+}
+
+.profile-name {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  /* background-color: lightcoral; */
+  color: #000000;
+}
+
+.profile-date {
+  margin-top: 1px;
+  font-size: 10px;
+  /* background-color: lawngreen; */
+  color: #BFBFBF;
+}
+
+.post-content {
+  color: #000000;
+  font-size: 15px;
+  margin: 10px;
+}
+
+hr {
+  margin: 15px 15px 15px 15px;
+  color: #bfbfbf;
+  opacity: 0.5;
+}
+

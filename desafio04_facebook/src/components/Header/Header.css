@@ -1,0 +1,27 @@
+header {
+  background: #4a90e2;
+  display: flex;
+  justify-content: space-between;
+}
+
+header img {
+  padding: 10px;
+  margin-left: 150px;
+}
+
+header div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+header div span {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+header div img {
+  width: auto;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 150px;
+}

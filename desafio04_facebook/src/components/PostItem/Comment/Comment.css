@@ -1,0 +1,21 @@
+.comment-content {
+  display: flex;
+  margin-bottom: 15px;;
+}
+
+.comment-content img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.comment-content span {
+  background-color: #DCDCDC;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 1em;
+  color: black;
+  font-size: 15px;
+  padding: 10px;
+}

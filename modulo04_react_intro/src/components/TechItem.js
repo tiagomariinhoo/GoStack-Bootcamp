@@ -10,7 +10,9 @@ function TechItem({ tech, onDelete }) {
         </li>
     );
 }
-
+/**
+ * Valores default para o props caso não passe nada
+ */
 TechItem.defaultProps = {
     tech: 'Oculto',
 };
