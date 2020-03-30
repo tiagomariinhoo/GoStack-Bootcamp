@@ -4,29 +4,27 @@ import Persona from '../../assets/persona.png';
 import Persona2 from '../../assets/persona2.png';
 import Comment from './Comment/Comment';
 
-function PostItem() {
+function PostItem({post}) {
   return(
     <div className = "post-item">
       <div className="profile-content">
-        <img src={Persona} className="persona-img" />
+        <img src={post.author.avatar} className="persona-img" />
         <div className="name-content">
-          <h1 className="profile-name"> Tiago Marinho </h1>
-          <h1 className="profile-date"> 23 Jun 2020</h1>
+          <h1 className="profile-name"> {post.author.name} </h1>
+          <h1 className="profile-date"> {post.date}</h1>
         </div>
       </div>
       <div post-content className="post-content"> 
-        <span> Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+        <span> 
+          {post.content}
         </span>
       </div>
 
       <hr/>
 
-      <Comment/>
-      <Comment/>
+      {post.comments.map((comment => (
+        <Comment comment={comment}/>
+      )))}
 
     </div>
   );
