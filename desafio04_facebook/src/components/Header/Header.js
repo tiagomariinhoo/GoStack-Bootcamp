@@ -1,5 +1,6 @@
 import React from 'react';
 import perfilIcon from '../../assets/perfil_icon.png';
+import Persona from '../../assets/persona.png';
 import './Header.css';
 
 function Header() {
@@ -8,7 +9,7 @@ function Header() {
         <img src="https://i.imgur.com/KDIDiSE.png" />
         <div>
           <span>Meu perfil</span>
-          <img src = {perfilIcon} />
+          <img src = {Persona} />
         </div>
     </header>
   );
