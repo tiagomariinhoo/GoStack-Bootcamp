@@ -1,0 +1,14 @@
+Para não precisar colocar webpack, babel etc etc
+
+Basta dar um: yarn create react-app nome-do-projeto
+E ele já configura tudo certinho
+
+Routes-dom para criar as rotas do front end
+
+Instalar o plugin no vscode: prettier, esling, editorconfig e rocketseat reactjs
+
+Styled components, adicionar no yarn e colocar a extensão no vscode
+
+React-icons para colocar os icons
+
+Axios é o que utilizamos para fazer requisições a outras API's
