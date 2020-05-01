@@ -1,0 +1,23 @@
+Frameworks
+	- ExpressJS
+		Separa em serviços e deixa o código mais organizado
+
+Outros que são produtivos:
+	AdonisJS
+	NestJS
+
+	----- API REST
+	Get
+	Put
+	Post
+	Delete
+
+	Comunicação produtiva e flexível
+	yarn init -y // Para iniciar o projeto JS
+	yarn add nodemon -D // Para adicionar como dep de desenvolvimento
+
+Tipos de parâmetros:
+
+Query Params: Filtros e paginação
+Router Params: Identificar/Atualizar/Deletar
+Request Body: Conteúdo na hora de criar ou editar um recurso (JSON)
