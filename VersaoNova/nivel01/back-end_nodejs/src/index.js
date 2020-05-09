@@ -1,8 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const { uuid, isUuid } = require('uuidv4');
 
 const app = express();
 
+// Vai permitir que qualquer front tenha acesso
+// Mas podemos passar uma origem para habilitar só quem pode
+app.use(cors());
 app.use(express.json())
 
 // Guarda na memória da aplicação

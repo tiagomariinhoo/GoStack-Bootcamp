@@ -62,6 +62,7 @@ app.delete("/repositories/:id", (req, res) => {
   const index = repositories.findIndex(repository => repository.id == req.params.id)
 
   if(index < 0) {
+    console.log("Id atual", req.params.id);
     return res.status(400).json({
       error: "Repository does not exists"
     })
