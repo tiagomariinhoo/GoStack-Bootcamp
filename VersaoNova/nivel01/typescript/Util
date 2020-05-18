@@ -1,0 +1,8 @@
+// Para adicionar o ts no projeto
+yarn add typescript -D
+
+yarn add express (já que continua como uma aplicação node)
+  Não dá pra usar o listen, então tem que instalar o @types/express
+  como desenvolvimento
+
+yarn tsc para gerar o arquivo js a partir do arquivo ts

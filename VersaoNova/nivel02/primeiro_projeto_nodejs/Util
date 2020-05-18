@@ -1,0 +1,7 @@
+ts-node-dev : faz o papel do tsc e do nodemon
+
+Persistência <-> Repositório <-> Rota
+
+Regra de negócio: Quando é algo muito específico da aplicação
+por exemplo, verificação por data se já tem agendamento naquela hora
+essas coisas.
