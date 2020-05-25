@@ -5,3 +5,16 @@ Persistência <-> Repositório <-> Rota
 Regra de negócio: Quando é algo muito específico da aplicação
 por exemplo, verificação por data se já tem agendamento naquela hora
 essas coisas.
+
+- Utiliza o typeorm
+- Utiliza o postgres (cria o docker e usa o dbeaver)
+
+yarn typeorm migration:create -n CreateAppointments (comando para criar Migrations)
+
+Para executar as migrations:
+yarn typeorm migration:run
+
+Para desfazer a migration:
+yarn typeorm migration:revert
+
+LEMBRAR DE IMPROTAR O REFLECT-METADATA
