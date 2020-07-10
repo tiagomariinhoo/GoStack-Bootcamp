@@ -7,6 +7,8 @@ import Appointment from '../models/Appointment';
 import AppointmentsRepository from '../repositories/AppointmentsRepository';
 import CreateAppointentService from '../services/CreatingAppointmentService';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const appointmentsRouter = Router();
 
 // localhost:3333/appointments...
@@ -22,6 +24,8 @@ const appointmentsRouter = Router();
  * é interessante sempre deixar o async / await
  */
 
+appointmentsRouter.use(ensureAuthenticated);
+
 appointmentsRouter.get('/', async (req, res) => {
   const appointmentsRepository = getCustomRepository(AppointmentsRepository);
   const appointments = await appointmentsRepository.find();
@@ -30,7 +34,6 @@ appointmentsRouter.get('/', async (req, res) => {
 });
 
  appointmentsRouter.post('/', async (req, res) => {
-  try {
     const {provider_id, date} = req.body;
 
     const parsedDate = parseISO(date);
@@ -43,12 +46,6 @@ appointmentsRouter.get('/', async (req, res) => {
     });
 
     return res.json(appointment);
-  } catch(err) {
-    return res.status(400).json({
-      error: err.message
-    });
-  }
-
 });
 
 export default appointmentsRouter;

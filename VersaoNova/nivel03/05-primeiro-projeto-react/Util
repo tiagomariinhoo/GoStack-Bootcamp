@@ -1,0 +1,3 @@
+create-react-app 05-primeiro-projeto-react --template=typescript //Para criar o projeto
+
+react-router-dom //Para lidar com as rotas

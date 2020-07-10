@@ -18,3 +18,10 @@ Para desfazer a migration:
 yarn typeorm migration:revert
 
 LEMBRAR DE IMPROTAR O REFLECT-METADATA
+
+Middleware de upload de arquivos: Multer
+
+OBS: No typescript quando a lib fica vermelha, basta:
+yarn add -D @types/lib
+
+express-async-errors

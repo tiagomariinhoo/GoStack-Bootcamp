@@ -1,6 +1,10 @@
 import 'reflect-metadata';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
+
 import routes from './routes';
+import uploadConfig from './config/upload';
+import AppError from './errors/AppError';
 
 import './database';
 
@@ -8,7 +12,26 @@ const app = express();
 
 app.use(express.json());
 // O routes nesse caso se torna um middleware
+app.use('/files', express.static(uploadConfig.directory));
 app.use(routes);
+
+// Tratativa dos erros depois das rotas
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  if (err instanceof AppError) {
+    return res.status(err.statusCode).json({
+      status: 'error',
+      message: err.message,
+    });
+  }
+
+  console.error(err);
+
+  return res.status(500).json({
+    status: 'error',
+    message: 'Internal server error',
+  })
+});
 
 app.listen(3333, () => {
   console.log("Server started");
