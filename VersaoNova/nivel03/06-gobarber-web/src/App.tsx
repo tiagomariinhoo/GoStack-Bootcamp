@@ -4,9 +4,17 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import GlobalStyle from './styles/global'
 
+import { AuthProvider } from './hooks/AuthContext';
+
+// Coloca em torno dos componentes que queremos
+// que tenham acesso ao Contexto de autenticação
+// AuthContext.Provider
+
 const App: React.FC = () => (
     <>
-        <SignUp/>
+        <AuthProvider>
+            <SignIn />      
+        </AuthProvider>
         <GlobalStyle/>
     </>
 );
