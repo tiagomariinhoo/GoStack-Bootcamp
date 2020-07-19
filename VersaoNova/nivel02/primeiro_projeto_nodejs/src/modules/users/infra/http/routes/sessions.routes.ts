@@ -1,26 +1,17 @@
 import { Router } from 'express';
-const sessionsRouter = Router();
-
+import { container } from 'tsyringe'
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
+import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
+
+import SessionsController from '../controllers/SessionsController';
 
 /**
  * Criar uma sessão na aplicação
  */
 
- sessionsRouter.post('/', async (req, res) => {
-    const { email, password } = req.body;
+const sessionsRouter = Router();
+const sessionsController = new SessionsController();
 
-    const authenticateUser = new AuthenticateUserService();
-
-    const { user, token } = await authenticateUser.execute({
-      email,
-      password
-    });
-
-    return res.json({
-      user,
-      token
-    });
-});
+ sessionsRouter.post('/', sessionsController.create);
 
 export default sessionsRouter;
