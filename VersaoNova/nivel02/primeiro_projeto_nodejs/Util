@@ -36,3 +36,5 @@ O que for compartilhado entre mais de um módulo, coloca dentro de Shared
 
 Na camada de infra, tudo que nós teríamos problemas ao trocarmos as tecnologias
 colocamos lá.
+
+Test Coverage: Para ajudar a saber se já criou testes demais ou falta algo a ser testado
