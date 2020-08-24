@@ -26,4 +26,4 @@ const Route: React.FC<RouteProps> = ({ isPrivate = false, component: Component, 
     }}/>);
 };
 
-export default Route;
+export default Route; 
