@@ -7,8 +7,20 @@ import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRe
 //   expect(1+2).toBe(3);
 // });
 
+let fakeAppointmentsRepository: FakeAppointmentsRepository;
+let createAppointment: CreateAppointmentService;
+
 // Cria como se fosse uma categoria
 describe('CreateAppointment', () => {
+
+  beforeEach(() => {
+    fakeAppointmentsRepository = new FakeAppointmentsRepository();
+
+    createAppointment = new CreateAppointmentService(
+      fakeAppointmentsRepository,
+    );
+  });
+
   it('should be able to create a new appointment', async () => {
     const fakeAppointmentsRepository = new FakeAppointmentsRepository();
     const createAppointment = new CreateAppointmentService(
