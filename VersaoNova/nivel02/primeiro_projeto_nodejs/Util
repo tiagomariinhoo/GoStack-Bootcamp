@@ -9,6 +9,8 @@ essas coisas.
 - Utiliza o typeorm
 - Utiliza o postgres (cria o docker e usa o dbeaver)
 
+yarn jest --clearCache (para limpar o cache dos testes)
+
 yarn typeorm migration:create -n CreateAppointments (comando para criar Migrations)
 
 Para executar as migrations:
