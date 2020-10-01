@@ -9,7 +9,14 @@ essas coisas.
 - Utiliza o typeorm
 - Utiliza o postgres (cria o docker e usa o dbeaver)
 
+Class-transformer, para mudar as classes antes de enviar ou fazer requisição (como tirar o password do json, por exemplo)
+
+Celebrate -> para fazer validação
+
 yarn jest --clearCache (para limpar o cache dos testes)
+
+Container do mongodb:
+docker run --name mongodb -p 27017:27017 -d -t mongo
 
 yarn typeorm migration:create -n CreateAppointments (comando para criar Migrations)
 

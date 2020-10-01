@@ -8,6 +8,7 @@ import multer from 'multer';
 import uploadConfig from '@config/upload';
 import UpdateUserAvatarSerivce from '@modules/users/services/UpdateUserAvatarService'
 import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
+import { classToClass } from 'class-transformer';
 
 export default class UsersController {
   public async create(req: Request, res: Response): Promise<Response> {
@@ -23,9 +24,8 @@ export default class UsersController {
       })
 
       // Para não mostrar a senha na hora de listar
-      delete user.password;
 
-      return res.json(user);
+      return res.json(classToClass(user));
     } catch(err) {
       return res.status(400).json({
         error: err.message
