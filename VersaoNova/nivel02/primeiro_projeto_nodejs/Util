@@ -6,6 +6,10 @@ Regra de negócio: Quando é algo muito específico da aplicação
 por exemplo, verificação por data se já tem agendamento naquela hora
 essas coisas.
 
+Amazon S3 = CDN (Content Delivery Network) -> Ambiente de desenvolvimento
+Escala Vertical - Aumenta os recursos (memoria etc)
+Escala horizontal - Cria um novo servidor e roda em dois servidores diferentes, por exemplo
+
 - Utiliza o typeorm
 - Utiliza o postgres (cria o docker e usa o dbeaver)
 
@@ -19,6 +23,8 @@ Container do mongodb:
 docker run --name mongodb -p 27017:27017 -d -t mongo
 
 yarn typeorm migration:create -n CreateAppointments (comando para criar Migrations)
+
+Amazon SES para envio de email
 
 Para executar as migrations:
 yarn typeorm migration:run
