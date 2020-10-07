@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 
 import { Exclude, Expose } from 'class-transformer';
 
-import uploadConfig from 'config/upload'
+import uploadConfig from '@config/upload'
 
 // Vai enviar essa classe
 // a classe é o parâmetro que estamos passando para a entidade

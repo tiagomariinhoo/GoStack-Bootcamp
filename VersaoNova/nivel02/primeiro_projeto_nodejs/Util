@@ -6,6 +6,9 @@ Regra de negócio: Quando é algo muito específico da aplicação
 por exemplo, verificação por data se já tem agendamento naquela hora
 essas coisas.
 
+Redis para Cache: é basicamente uma tabela com duas colunas (chave, valor)
+docker run --name redis -p 6379:6379 -d -t redis:alpine
+
 Amazon S3 = CDN (Content Delivery Network) -> Ambiente de desenvolvimento
 Escala Vertical - Aumenta os recursos (memoria etc)
 Escala horizontal - Cria um novo servidor e roda em dois servidores diferentes, por exemplo

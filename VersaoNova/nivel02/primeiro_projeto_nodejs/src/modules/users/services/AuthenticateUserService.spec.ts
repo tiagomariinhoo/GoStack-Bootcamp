@@ -10,7 +10,6 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 // });
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
-let createUser: CreateUserService;
 let authenticateUser: AuthenticateUserService;
 
 // Cria como se fosse uma categoria

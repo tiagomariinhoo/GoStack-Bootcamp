@@ -6,7 +6,7 @@ import cors from 'cors';
 import {errors} from 'celebrate'
 import 'express-async-errors';
 
-
+import rateLimiter from './middlewares/rateLimiter'
 
 import routes from './routes';
 import uploadConfig from '@config/upload';
@@ -17,6 +17,7 @@ import '@shared/container';
 
 const app = express();
 
+app.use(rateLimiter);
 app.use(cors());
 app.use(express.json());
 // O routes nesse caso se torna um middleware
