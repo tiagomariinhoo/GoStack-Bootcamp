@@ -78,7 +78,7 @@ const SignIn: React.FC = () => {
                         <Input name="password" icon={FiLock} type="password" placeholder="Senha" />
                         <Button type="submit">Entrar</Button>
 
-                        <a href="forgot">Esqueci minha senha</a>
+                        <Link to="/forgot-password">Esqueci minha senha</Link>
                     </Form>
 
                     <Link to="/signup">
