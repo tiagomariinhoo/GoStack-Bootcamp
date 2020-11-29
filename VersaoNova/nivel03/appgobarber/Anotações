@@ -1,0 +1,8 @@
+Quando adiciona fonte ou algo do tipo, dá um: 
+yarn react-native link
+
+E quando faz esse tipo de coisa, roda um:
+yarn ios
+Novamente
+
+O css no mobile pode ser do mesmo jeito que fazemos o css na web

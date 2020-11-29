@@ -1,1 +1,1 @@
-declare module '*.png'; // Os arquivos que terminam com .png são módulos para a aplicação
+declare module '*.png'
