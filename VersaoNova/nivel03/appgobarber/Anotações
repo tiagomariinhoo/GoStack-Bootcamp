@@ -6,3 +6,7 @@ yarn ios
 Novamente
 
 O css no mobile pode ser do mesmo jeito que fazemos o css na web
+
+Depois de instalar o react-native-icons
+cd ios
+pod install
