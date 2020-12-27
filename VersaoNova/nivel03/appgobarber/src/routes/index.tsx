@@ -18,7 +18,7 @@ const Routes: React.FC = () => {
   }
 
   // Trocar true para user para o fluxo normal da aplicação
-  return true ? <AppRoutes /> : <AuthRoutes />;
+  return user ? <AppRoutes /> : <AuthRoutes />;
 };
 
 export default Routes;
