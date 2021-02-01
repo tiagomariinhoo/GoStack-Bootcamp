@@ -1,0 +1,12 @@
+
+React Testing Library (já vem instalada por padrão no create-react-app)
+React Hooks Testing Library (library específica pra testar hooks, por exeplo, aqui temos o useAuth pra testar)
+React Native Testing Library (para testar o react-native)
+
+yarn add @testing-library/react-hooks // Parte do teste de hooks
+yarn add react-test-renderer -D
+
+É importante criar um Mock da API para satisfazer os testes já que não podemos depender da API
+Para criar o Mock da API, é necessário utilizar o: yarn add axios-mock-adapter -D
+
+yarn test --coverage --watchAll false
