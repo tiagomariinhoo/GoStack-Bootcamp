@@ -1,0 +1,33 @@
+- O NextJs faz o mesmo do create-react-app só que com algumas coisas a mais
+
+- Pode ser utilizado em qualquer tipo de aplicação, vai trazer mais performance e poderemos 
+    otimizar a aplicação por conta disso, coloca a aplicação nos motores de busca
+
+Para criar, basta dar um: yarn create next-app curso-nextjs
+
+Para adicionar o typescript no Next: yarn add typescript @types/react @types/node -D (depois troca os arquivos de .js para .tsx)
+
+Obs: O Next traz uma camada a mais de servidor, a interface não é mais construída no navegador. Tanto que
+em uma aplicação normal react se desabilitar o javascript no navegador na parte de debugger, a página some
+isso é uma das funcionalidades do server-side rendering
+
+----- ROTAS
+
+- Outro ponto ÓTIMO no NextJs é que não precisa de bilioteca para lidar com rotas, basicamente se eu criar um file
+search.tsx e der um localhost:3000/search, a página já estará lá
+
+Se criar o arquivo com _ na frente, tipo: _app, o next vai descartar para que não seja uma rota. Index é a rota principal
+
+Dynamic Route: coloca [nome].tsx no nome do arquivo e quando der localhost:3000/nome, ele acessa, pode colocar qualquer coisa aí dentro
+
+----- Styled Components
+yarn add styled-components
+yarn add @types/styled-components -D
+
+Na documentação é possível ir na parte de Server Side Rendering -> NextJS e ver o exemplo
+Cria um babel.config.js na raiz
+
+yarn add babel-plugin-styled-components -D
+
+Cria o _document.tsx dentro de pages. O _app.tsx é renderizado uma vez na aplicação
+o _document.tsx é renderizado a cada tela, sempre de uma tela pra outra. Esse document pega lá na documentação
