@@ -31,3 +31,20 @@ yarn add babel-plugin-styled-components -D
 
 Cria o _document.tsx dentro de pages. O _app.tsx é renderizado uma vez na aplicação
 o _document.tsx é renderizado a cada tela, sempre de uma tela pra outra. Esse document pega lá na documentação
+
+----- Fazendo uma API Fake
+json-server
+Cria um server.json
+
+npx json-server server.json -p 3333 -w (-d 2000 coloca um delay de 2s)
+
+Static Site Generation - Geração de sites estáticos
+Ficou popular com o gatsby
+
+3 Maneiras de Fetching Data: Client Side, Server Side, Static
+
+----- Para criar uma pasta Custom 404, basta criar um 404.tsx e colocar tudo lá
+
+----- Utilizand Imports Dinamicos, função handleSum no index.tsx (dá para fazer o mesmo com os components)
+
+----- Variáveis de ambiente: se colocar NEXT_PUBLIC_ como prefixo lá no .env, dá pra acessar no html
