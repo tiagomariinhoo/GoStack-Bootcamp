@@ -1,0 +1,63 @@
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
+}
+
+
+#app {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* No flex-wrap, o elemento box vai pra linha de baixo quando não
+    couber no container */
+
+    /* Alinha os elementos quando eles estao em mais de uma linha */
+    /* Pode colocar no centro ou em qualquer outro lugar, é bom usar com o flex-wrap */
+    /* align-content: flex-start; */
+
+
+    /* flex-direction: column;
+
+    align-items: center;
+    justify-content: center; */
+
+    /* align-items: center;
+    justify-content: space-between; */
+}
+
+.box {
+    width: 300px;
+    height: 60px;
+    background: #f00;
+    margin: 5px;
+    /* flex-grow: 1; */
+    /* flex-grow preenche toda a largura disponível na tela
+        vai ser aumentado para caber no container pai
+    */
+
+    /* flex-shrink: 0; */
+    /* flex-shrink diz se o componente tem a capacidade de espremer
+    para caber no container 
+    se colocar flex-shrink: 0, ele bota a barra de rolagem
+    */
+
+    /* flex: 1 0;  */
+    /* Soma do flex-grow com o flex-shrink 
+    flex: 1 0, aumenta se necessário (1) e não se esprema (0)*/
+}
+
+.red {
+    order: 1;
+    background: #F00;
+}
+
+.green {
+    order: 2;
+    background: #0F0;
+}
+
+.blue {
+    order: 3;
+    background: #00F;
+}

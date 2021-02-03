@@ -1,0 +1,16 @@
+No container:
+display: flex / flex-direction
+
+Sempre que: 
+flex-direction: row -> align-items vai alinhar verticalmente
+-> justify-content vai alinhar os itens horizontalmente
+
+flex-end -> alinha no final
+flex-start -> alinha tudo no começo
+
+justify-content: space-between -> espaço igual entre os itens
+o space-around coloca um espaço nas bordas tb
+
+OBS:
+O align-items sempre vai alinhar os itens no eixo contrário do flex-direction
+Sempre pestar atenção no justify-content e no align-items
