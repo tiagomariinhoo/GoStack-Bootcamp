@@ -1,14 +1,16 @@
-import { globalAgent } from 'http';
 import React from 'react';
 import GlobalStyle from './styles/global'
 
+import Routes from './routes'
+
+import { BrowserRouter as Router } from 'react-router-dom'
+
 const App: React.FC = () => (
   <>
-    <GlobalStyle />
-    <div>
-      <h1>Login</h1>
-      <p>Todo: MaterialUI - StackOverflow Emblem</p>
-    </div>
+    <Router>
+      <Routes />
+      <GlobalStyle />
+    </Router>
   </>
 )
 
