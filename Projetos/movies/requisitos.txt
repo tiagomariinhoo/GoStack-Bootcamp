@@ -1,0 +1,21 @@
+Requisitos
+
+Obs: Tentar fazer para filmes mas caso não dê pra utilizar uma boa API, fazer um layout genérico para jogos ou alguma outra coisa.
+
+# FRONT (ReactJS + NextJS + MaterialUI)
+
+- Login (ver como fazer autenticação utilizando o Context)
+- Dashboard mostrando filmes através da API do IMDB (pode ser baseado no layout do twitter) pode ser um grid mostrando 3 filmes por linha e que seja responsável. Ao clicar no filme, abre outra página mostrando uns detalhes do filme.
+	- Clicar no filme e detalhar
+	- Os filmes serão cards clicáveis com a imagem, título e descrição 
+	- Pode ter uns 9 cards por página, com paginação
+	- Campo para pesquisar filme por nome ou filtrar por algum tipo etc
+
+# BACK (NodeJS)
+
+- Autenticação
+- Guardar filmes favoritos (pensar sobre essa funcionalidade)
+
+# MOBILE (React Native)
+
+- Mesma coisa do Front só que com o layout diferente
