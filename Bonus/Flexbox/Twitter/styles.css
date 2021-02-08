@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* Reset em todos os elementos */
+}
+
+body {
+    background: #E6ECF0;
+}
