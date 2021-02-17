@@ -1,0 +1,28 @@
+npx react-native init authrn --template react-native-template-typescript (npx is just to exec package functions through the internet)
+
+yarn ios para executar o emulador do ios (no mac)
+yarn android para executar o emulador do android (depois de configurar o emulador do android)
+
+yarn add @react-navigation/native -> para utilizar no expo
+yarn add react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view -> restante dos pacotes
+
+navigation no formato de stack
+yarn add @react-navigation/stack (quando vai navegando de uma tela para a outra, vai criando uma pilha de navegação)
+
+importa o react-native-gesture-handler no App.tsx bem no começo sempre
+Basta seguir a documentação
+
+Entrar na pasta ios e rodar o pod install, sempre lembrar disso
+
+----
+
+Utilizando o useContext (para checar os dados do usuário logado)
+Dentro da pasta contexts -> auth.tsx
+
+utilizar o createContext do próprio react e cria o contexto
+
+vai em App.tsx e coloca o AuthContext.Provider englobando os outros componentes
+tudo que tiver dentro do Provider, vai poder usar o AuthContext e pegar os dados
+
+localStorage no reactjs
+asyncStorage no react-native (yarn add @react-native-community/async-storage)
