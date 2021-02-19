@@ -6,10 +6,11 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         outline: 0;
+        font-family: Roboto;
     }
     
     body {
-        background: #292930;
+        background: #247Ba0;
         height: 100vh;
         -webkit-font-smoothing: antialiased;
     }
