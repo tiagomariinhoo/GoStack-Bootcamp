@@ -51,8 +51,17 @@ export const FooterContainer = styled.div`
     width: 100%;
     background: #fff;
     display: flex;
+    flex-direction: column;
+    padding-left: 480px;
+    line-height: 20px;
 
     > span {
-        word-spacing: 20px;
+        word-spacing: 15px;
+        font-size: 11px;
+        color: #8a8d91;
+    }
+
+    > span:first-child {
+        margin-top: 30px;
     }
 `

@@ -41,7 +41,7 @@ const FacebookLayout: React.FC = () => {
                     >Log In</CustomLoginButton>
 
                     <a style={{textDecoration: 'none', marginTop: 15, fontSize: 12}} href="">Forgot Password?</a>
-                    <hr style={{borderTop: '0.5px solid #bbb', width: '100%', marginTop: 20, marginBottom: 20}}/>
+                    <hr style={{borderTop: '0.5px solid #dadde1', width: '100%', marginTop: 20, marginBottom: 25}}/>
                     <CustomLoginButton
                         style={{borderRadius: '5px', marginBottom: 10, padding: '10px', backgroundColor: '#42b72a', color: '#fff', width: '200px'}}
                     >Create New Account</CustomLoginButton>
@@ -49,6 +49,10 @@ const FacebookLayout: React.FC = () => {
             </MainContainer>
             <FooterContainer>
                 <span>English Português Español Français(France) Italiano</span>
+                <hr style={{borderTop: '0.5px solid #dadde1', width: '67%', marginTop: 10, marginBottom: 10}}/>
+                <span>SignUp LogIn Messenger FacebookLite Watch People Pages PageCategories Places Games Locations Marketplace FacebookPay Groups</span>
+                <span>SignUp LogIn Messenger FacebookLite Watch People Pages PageCategories Places Games Locations Marketplace FacebookPay Groups</span>
+                <span>Cookies AdCHoices Terms Help</span>
             </FooterContainer>
         </Container>
     )
