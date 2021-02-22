@@ -14,6 +14,10 @@ const Main: React.FC = () => {
         history.push('/facebook')
     }
 
+    const handleLinkToGamesApi = () => {
+        history.push('/games')
+    }
+
     return (
         <Container>
             <LoginContainer>
@@ -22,7 +26,7 @@ const Main: React.FC = () => {
                 <ButtonContainer>
                     <Button onClick={handleLinkToGithubApi}>Github API</Button>
                     <Button onClick={handleLinkToFacebookLayout}>Facebook API</Button>
-                    <Button disabled={true}>Google API</Button>
+                    <Button onClick={handleLinkToGamesApi}>Games API</Button>
                 </ButtonContainer>
             </LoginContainer>
         </Container>

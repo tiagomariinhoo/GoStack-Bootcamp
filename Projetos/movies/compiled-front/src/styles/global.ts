@@ -9,9 +9,8 @@ export default createGlobalStyle`
         font-family: Roboto;
     }
     
-    body {
-        background: #247Ba0;
-        height: 100vh;
+    html,body,#root {
         -webkit-font-smoothing: antialiased;
+        position: relative;
     }
 `

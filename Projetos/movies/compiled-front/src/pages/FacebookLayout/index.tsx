@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, FooterContainer, LoginContainer, LogoContainer, MainContainer } from './styles'
 import styled from "styled-components";
-import FacebookLogo from '../../assets/facebookLogo.svg'
+import FacebookLogo from '../../assets/facebookLayout/facebookLogo.svg'
 import { Button, TextField, Divider } from '@material-ui/core'
 
 const CustomTextField = styled(TextField)`
