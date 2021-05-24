@@ -1,0 +1,20 @@
+Export and Export default
+
+-- When you use EXPORT DEFAULT, where u import the component, u can use the name that u watchman
+-- Using just EXPORT (like export function), the name that will be used, is the same that the export component, you cannot define the name
+
+The FIRST step is: 
+
+- Remove all useless files
+- Add global Styles (inside styles/global.ts and use as component)
+
+
+JSON-SERVER
+- We can use to create "mock routes" to use, like a fake api server
+
+MIRAGE-JS
+- Build a fake api inside the front end
+- This is better because has a integrated database and we can build relations
+
+MSW (Mock service worker)
+- Its a good option as well, but does not have a lot of features like mirage-js
