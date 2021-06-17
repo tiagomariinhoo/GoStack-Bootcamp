@@ -1,0 +1,15 @@
+Hide the text and even so its indexed by google
+
+Stripe (control payment services API, easy to use)
+FaunaDB (database, made specifically for serveless applications [we can use dynamodb as well])
+Prismic CMS (content management system)
+
+-> Authentication by github (OAuth, authentication pattern)
+    - Basically OAuth pattern give me the permission to access my github datas, just to ensure that Im a real person
+
+Layout ig.news - https://www.figma.com/file/gl0fHkQgvaUfXNjuwGtDDs/ig.news/duplicate
+
+NextJS is a framework created over the React
+
+//To create the project
+yarn create next-app ignews

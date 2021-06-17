@@ -1,0 +1,20 @@
+Each file inside pages folder, will be a route (IMPORTANT)
+
+index.js is the main file
+
+// Just to add typescript
+yarn add typescript @types/react @types/node -D
+And change the files from .js to tsx
+
+Files with: .module.css, its a scoped css
+Install vsCode css modules plugin
+
+The css module will be used together with Sass
+
+yarn add sass
+
+home.module.css -> home.module.scss, now we can use the cascade css
+
+_app will be around all pages
+
+- Everytime that the user changes page, the app is executed again
