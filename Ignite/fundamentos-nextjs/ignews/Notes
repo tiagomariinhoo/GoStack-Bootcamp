@@ -18,3 +18,10 @@ home.module.css -> home.module.scss, now we can use the cascade css
 _app will be around all pages
 
 - Everytime that the user changes page, the app is executed again
+
+When using NextJs, the images always will be inside the public folder
+
+Use Stripe to payment methods
+
+1 - Create a product
+2 - API Keys (publishable key)
