@@ -25,3 +25,5 @@ Use Stripe to payment methods
 
 1 - Create a product
 2 - API Keys (publishable key)
+
+Inside the Api folder, all files created will be routes
