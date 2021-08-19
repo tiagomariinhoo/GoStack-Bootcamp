@@ -27,3 +27,31 @@ Use Stripe to payment methods
 2 - API Keys (publishable key)
 
 Inside the Api folder, all files created will be routes
+
+
+- Authentication Strategies
+
+1. JWT (Storage)
+2. Next Auth (when we want a simple authentication system or when 
+    we want a social login, using facebook for example) [a good article is reading nextjs authentication on own page]
+3. Cognito Aws, Auth0
+
+Using nextAuth
+
+Add [...nextauth] inside page/api/auth
+
+the Session info is stored using cookies, so if u 
+refresh the page or close the tab and returns, 
+the website will keep ur session login
+
+FaunaDb - Usually used in serveless application (if necessary, use fauna docs, FQL Cheat Sheet)
+
+- No relational
+- Schema Free: Has no column
+
+yarn add FaunaDb
+services -> fauna.ts
+Study when use FaunaDB, looks interesting
+DB inside Front
+
+Next-Auth Js
