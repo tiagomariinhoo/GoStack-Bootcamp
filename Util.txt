@@ -1,1 +1,4 @@
 React Hooks e Context API - https://www.notion.so/React-Hooks-e-Context-API-c2effc37567442adbfa36bbc4cd94d9c
+
+Bulletproof React: Simple and Strong architecture
+https://reactjsexample.com/bulletproof-react-a-simple-scalable-and-powerful-architecture-for-building-production-ready-react-applications/
