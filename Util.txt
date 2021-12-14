@@ -2,3 +2,6 @@ React Hooks e Context API - https://www.notion.so/React-Hooks-e-Context-API-c2ef
 
 Bulletproof React: Simple and Strong architecture
 https://reactjsexample.com/bulletproof-react-a-simple-scalable-and-powerful-architecture-for-building-production-ready-react-applications/
+
+Creating React Typescript applications
+yarn create react-app my-app --template typescript
