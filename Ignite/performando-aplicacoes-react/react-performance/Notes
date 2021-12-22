@@ -1,0 +1,111 @@
+Ways to rerender
+
+# Parent to child
+<Parent>
+  <Child />
+</Parent>
+
+# Props
+<Parent>
+  <Child props />
+</Parent>
+
+# Hooks update (State, Context, Reducer)
+``` tsx
+function Component() {
+  const [state, setState] = useState()
+  
+}
+```
+
+# Render flow
+
+1. Generate a new component version that needs to be render
+2. Compare that new version with the previous version already saved on page
+3. If there is changes, React render this new version
+
+Reconciliation -> diffing algorithm, just to compare the difference between two structures
+Render elements (documentation)
+
+yarn add json-server -D  == accept servers in json or javascript format
+1. Just need to create a server.js file to configurate the fake server
+2. Put the command line into package.json
+
+---- React Dev Tools
+
+Components Tab
+
+-> When inspect the page, its possible to use Components to see each
+component that was rendered
+
+View Settings -> General -> Highlight updates when components render
+Will shows a border that will focus on all components that are being
+rerender
+
+But this doesn't mean that React is creating the components again,
+this means that React is just comparing the components to check
+if need to change something
+
+Profiler Tab
+
+To understand which components were rendered and how often
+delayed
+
+View Settings -> Profiler -> Record why each component rendered while profiling
+
+
+------- Memo (when all info are coming from props)
+Can be used involving the whole component (when export it)
+
+There are 3 rules to render the component again:
+
+1. Create a new version of the component (memo will avoid this, unless that at least 1 prop was changed)
+2. Compare with the previous version
+3. If there is changes, will update the changes
+
+Basically, using it on ProductItem tsx
+will check if { product } props changes
+to doesn't allow create a new component version
+cause all informations are provided using props
+
+Memo does basically a "shallow compare" -> comparação rasa
+Compare the props
+
+When use memo:
+1. Pure Functional Components
+  -> Just visual components, interface
+2. Renders too often (components that render a lot, its possible
+see them, using react dev tools profiler)
+3. Re-renders with same props
+4. Medium to big size components
+
+In doubt u can use profiler to see if the optimization is really working
+
+------- useMemo
+
+When use useMemo:
+1. Heavy calculations
+2. Referential equality (when pass that info to child component)
+
+------ useCallback (memo in function)
+
+Sometimes use the useCallback cause the quantity of the code into
+the function. But its not true, the most important use about useCallback
+is about referential equality
+
+When pass function between parent and child
+
+------- Code Splitting
+
+When use Lazy Loading
+
+------- Virtualization
+
+Basically allows to show on screen just what need (like scroll and show
+just what the user needs)
+
+react-virtualized
+
+------- Bundle Analyzer
+
+lodash

@@ -55,3 +55,17 @@ Study when use FaunaDB, looks interesting
 DB inside Front
 
 Next-Auth Js
+
+Webhooks
+    - When something happens, the application will notify
+    for our application that something needs to be update
+
+INSTALL STRIPE-CLI
+
+- define the route
+stripe listen --forward-to localhost:3000/api/webhooks
+
+Card: 4242 4242 4242 4242 for testing
+Event: checkout.session.completed
+
+STRIPE_WEBHOOK_SECRET u can get when run stripe listen

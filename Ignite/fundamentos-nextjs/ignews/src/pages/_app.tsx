@@ -6,6 +6,7 @@ import '../styles/global.scss'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextAuthProvider session={pageProps.session}>
+      <title>ig.news</title>
       <Header />
       <Component {...pageProps} />
     </NextAuthProvider>
