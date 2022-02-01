@@ -69,3 +69,14 @@ Card: 4242 4242 4242 4242 for testing
 Event: checkout.session.completed
 
 STRIPE_WEBHOOK_SECRET u can get when run stripe listen
+
+
+---- TESTS -----
+Install as development dependency
+
+yarn jest
+
+yarn add jest jest-dom @testing-library/jest-dom @testing-library/dom @testing-library/react babel-jest -D
+
+// To handle with css modules files
+yarn add identity-obj-proxy -D
